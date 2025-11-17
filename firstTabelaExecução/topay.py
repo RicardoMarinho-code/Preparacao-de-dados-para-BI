@@ -1,3 +1,6 @@
-def topay (committedExpenses, paidExpenses):
-    #Diferença entre dispesas empenhadas e pagas
-    return committedExpenses - paidExpenses
+def getTopay (document):
+    try:
+        document["A Pagar"] = document["DESPESAS EMPENHADAS"] - document["DESPESAS PAGAS"]
+        return document
+    except KeyError:
+        print("Erro: Verifique os nomes das colunas 'DESPESAS EMPENHADAS' e 'DESPESAS PAGAS'.")
